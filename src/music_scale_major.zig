@@ -18,8 +18,8 @@ pub const MusicScaleMajor = struct {
 
     fn calculateKey (self: *MusicScaleMajor) void {
         var index: u8 = self.seven_int_scale.interval_offset;
-        
-        
+        var roman_numeral_index: u8 = 1;
+
         for (self.seven_int_scale.scale_interval) |interval| {
             // index will wrap around 
             index %= @intCast(self.common_scale.chromatic_scale.len);
@@ -32,8 +32,20 @@ pub const MusicScaleMajor = struct {
                 }
             }
 
+            switch (roman_numeral_index) {
+                1 => std.debug.print("I:", .{}),
+                2 => std.debug.print(" II:", .{}),
+                3 => std.debug.print(" III:", .{}),
+                4 => std.debug.print(" IV:", .{}),
+                5 => std.debug.print(" V:", .{}),
+                6 => std.debug.print(" VI:", .{}),
+                7 => std.debug.print(" VII:", .{}),
+                else => std.debug.print("Indexing error!", .{}),
+            }
+
             std.debug.print("{s},", .{note});
             index += interval;
+            roman_numeral_index += 1;
         }
         // Print empty line
         std.debug.print("\n", .{});
