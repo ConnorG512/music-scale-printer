@@ -13,6 +13,7 @@ pub const MusicScaleMajor = struct {
         self.common_scale.storeCorrectChromaticScale();
         self.seven_int_scale.setScaleInterval();
         self.calculateKey();
+        self.calculateChords();
     }
 
     fn calculateKey (self: *MusicScaleMajor) void {
@@ -35,7 +36,21 @@ pub const MusicScaleMajor = struct {
             index += interval;
         }
         // Print empty line
-        std.debug.print("\n\n", .{});
+        std.debug.print("\n", .{});
+    }
+
+    fn calculateChords (_: *MusicScaleMajor) void {
+        const harmonic_functions:[7][]const u8 = .{
+            "I: Major (Tonic)", "II: Minor (Sub-Dominant)", "III: Minor (Tonic)", "IV: Major: (Sub-Dominant)",
+            "V: Major (Dominant)", "VI: Minor (Tonic)", "VII: Diminished (Dominant)",
+            };
+        // var index: u8 = 0;
+
+        for (harmonic_functions) |value| {
+            std.debug.print("{s}\n", .{value});
+        }
+
+        std.debug.print("\n", .{});
     }
 
 };

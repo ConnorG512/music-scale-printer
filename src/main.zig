@@ -14,8 +14,8 @@ test "simple test" {
     mscale.b_major.printInfo();
     mscale.fs_major.printInfo();
     mscale.cs_major.printInfo();
-    mscale.ef_major.printInfo();
     mscale.f_major.printInfo();
     mscale.bb_major.printInfo();
+    mscale.ef_major.printInfo();
     mscale.ab_major.printInfo(); 
 }
