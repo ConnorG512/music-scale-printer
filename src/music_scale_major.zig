@@ -34,7 +34,8 @@ pub const MusicScaleMajor = struct {
             std.debug.print("{s},", .{note});
             index += interval;
         }
-        std.debug.print("{s}", .{self.notes_in_key});
+        // Print empty line
+        std.debug.print("\n\n", .{});
     }
 
 };
