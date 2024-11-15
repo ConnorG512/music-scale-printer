@@ -13,7 +13,7 @@ pub const MusicScaleCommon = struct {
 
     // Methods
     pub fn storeCorrectChromaticScale (self: *MusicScaleCommon) void {
-        var chromatic_scale:[12][]const u8 = .{"None","None","None","None","None","None","None","None","None","None","None","None"};
+        var chromatic_scale:[12][]const u8 = .{"None","None","None","None","None","None","None","None","None","None","None","None"}; // lol
         
         switch (self.NoteType) {
             .note_type_flat => {

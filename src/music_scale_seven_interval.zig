@@ -5,6 +5,7 @@ pub const scale_seven_interval = struct {
     },
     scale_interval: [7] u8,
     interval_offset: u8,
+    roman_numeral_names: [7][]const u8,
 
     pub fn setScaleInterval (self: *scale_seven_interval) void {
         switch (self.ScaleType) {

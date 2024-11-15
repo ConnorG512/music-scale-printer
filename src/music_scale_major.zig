@@ -18,7 +18,7 @@ pub const MusicScaleMajor = struct {
 
     fn calculateKey (self: *MusicScaleMajor) void {
         var index: u8 = self.seven_int_scale.interval_offset;
-        var roman_numeral_index: u8 = 1;
+        var roman_numeral_index: u8 = 0;
 
         for (self.seven_int_scale.scale_interval) |interval| {
             // index will wrap around 
@@ -32,18 +32,8 @@ pub const MusicScaleMajor = struct {
                 }
             }
 
-            switch (roman_numeral_index) {
-                1 => std.debug.print("I:", .{}),
-                2 => std.debug.print(" II:", .{}),
-                3 => std.debug.print(" III:", .{}),
-                4 => std.debug.print(" IV:", .{}),
-                5 => std.debug.print(" V:", .{}),
-                6 => std.debug.print(" VI:", .{}),
-                7 => std.debug.print(" VII:", .{}),
-                else => std.debug.print("Indexing error!", .{}),
-            }
-
-            std.debug.print("{s},", .{note});
+            std.debug.print("{s} ", .{self.seven_int_scale.roman_numeral_names[roman_numeral_index]});
+            std.debug.print("{s}, ", .{note});
             index += interval;
             roman_numeral_index += 1;
         }
@@ -53,7 +43,7 @@ pub const MusicScaleMajor = struct {
 
     fn calculateChords (_: *MusicScaleMajor) void {
         const harmonic_functions:[7][]const u8 = .{
-            "I: Major (Tonic)", "II: Minor (Sub-Dominant)", "III: Minor (Tonic)", "IV: Major: (Sub-Dominant)",
+            "I: Major (Tonic)", "II: Minor (Sub-Dominant)", "iii: Minor (Tonic)", "IV Major: (Sub-Dominant)",
             "V: Major (Dominant)", "VI: Minor (Tonic)", "VII: Diminished (Dominant)",
             };
         // var index: u8 = 0;
@@ -79,6 +69,7 @@ pub var c_major = MusicScaleMajor {
         .scale_interval = undefined,
         .interval_offset = 0,
         .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -93,7 +84,8 @@ pub var cs_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 1,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -108,7 +100,8 @@ pub var d_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 2,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -123,7 +116,8 @@ pub var ef_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 3,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -138,7 +132,8 @@ pub var e_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 4,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -153,7 +148,8 @@ pub var f_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 5,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -168,7 +164,8 @@ pub var fs_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 6,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -183,7 +180,8 @@ pub var g_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 7,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -198,7 +196,8 @@ pub var ab_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 8,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -213,7 +212,8 @@ pub var a_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 9,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -228,7 +228,8 @@ pub var bb_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 10,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
@@ -243,7 +244,8 @@ pub var b_major = MusicScaleMajor {
     .seven_int_scale = .{
         .scale_interval = undefined,
         .interval_offset = 11,
-        .ScaleType = .scale_type_major
+        .ScaleType = .scale_type_major,
+        .roman_numeral_names = .{"I:", " ii:", " iii:", " IV:", " V:", " vi:", " VII:"},
     },
     .notes_in_key = undefined,
 };
